@@ -56,8 +56,8 @@ def main():
 
         N = 0
         M = 0
-        initial_grid = []
         answer_grid = []
+        initial_grid = []
         colors = []
 
         try:
@@ -69,9 +69,9 @@ def main():
                 if N <= 0 or M <= 0:
                     raise ValueError("Grid dimensions must be positive integers")
                 for line in lines[1 : N + 1]:
-                    initial_grid.append(list(map(int, line.strip().split())))
-                for line in lines[N + 1 : 2 * N + 1]:
                     answer_grid.append(list(map(int, line.strip().split())))
+                for line in lines[N + 1 : 2 * N + 1]:
+                    initial_grid.append(list(map(int, line.strip().split())))
                 for line in lines[2 * N + 1 : 2 * N + 1 + M]:
                     colors.append(list(map(int, line.strip().split())))
         except FileNotFoundError:
