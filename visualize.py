@@ -16,7 +16,7 @@ def slide_col(grid, j, k):
         grid[i][j] = col[i]
 
 
-def create_grid_image(grid, colors, cell_size=20):
+def create_grid_image(grid, colors, cell_size=1):
     N = len(grid)
     image_width = N * cell_size
     image_height = N * cell_size
