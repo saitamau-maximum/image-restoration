@@ -1,6 +1,6 @@
 import argparse
 import copy
-import imageio
+import imageio.v3 as iio
 from PIL import Image, ImageDraw
 
 
@@ -48,11 +48,20 @@ def main():
         parser.add_argument(
             "--output", default="out/animation.gif", help="Path to output GIF file"
         )
+        parser.add_argument(
+            "--duration",
+            type=int,
+            default=50,
+            help="Duration of each frame in milliseconds",
+        )
 
         args = parser.parse_args()
         input_path = args.input
         solution_path = args.solution_file_path
         output_path = args.output
+        duration = args.duration
+        if duration < 20:
+            raise ValueError("Duration must be greater than 20 milliseconds")
 
         N = 0
         M = 0
@@ -125,7 +134,7 @@ def main():
         except ValueError as e:
             raise ValueError(f"Error during grid operations: {e}")
 
-        imageio.mimsave(output_path, images, duration=0.5)
+        iio.imwrite(output_path, images, duration=duration)
         print(f"Animation saved to {output_path}")
 
     except Exception as e:
