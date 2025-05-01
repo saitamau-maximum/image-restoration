@@ -93,14 +93,6 @@ def main():
         except ValueError as e:
             raise ValueError(f"Error during grid operations: {e}")
 
-        # Display the grid
-        print("Grid after operations:")
-        for row in grid:
-            print(" ".join(map(str, row)))
-        print("Answer grid:")
-        for row in answer_grid:
-            print(" ".join(map(str, row)))
-
         # Validate the grid
         for i in range(N):
             for j in range(N):
